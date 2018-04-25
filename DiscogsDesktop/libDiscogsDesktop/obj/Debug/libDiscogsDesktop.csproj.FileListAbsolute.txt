@@ -1,0 +1,14 @@
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\libDiscogsDesktop.dll.config
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\libDiscogsDesktop.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\libDiscogsDesktop.pdb
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\Newtonsoft.Json.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\YoutubeExtractor.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\Newtonsoft.Json.xml
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\YoutubeExtractor.xml
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.csproj.CoreCompileInputs.cache
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.pdb
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\libvideo.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\JetBrains.Annotations.dll
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\JetBrains.Annotations.xml
+D:\LIBRARY\Documents\GitHub\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\MediaToolkit.dll
