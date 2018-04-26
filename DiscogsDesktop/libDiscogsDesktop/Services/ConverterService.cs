@@ -10,12 +10,10 @@ namespace libDiscogsDesktop.Services
 {
     public static class ConverterService
     {
-        private const string Folder = "D:\\LIBRARY\\Downloads";
-
-        public static void ConvertVideoToMp3(string filepath)
+        public static void ConvertVideoToMp3(string videoFilePath, string mp3FilePath)
         {
-            MediaFile inputFile = new MediaFile { Filename = filepath };
-            MediaFile outputFile = new MediaFile { Filename = $"{filepath}.mp3" };
+            MediaFile inputFile = new MediaFile { Filename = videoFilePath };
+            MediaFile outputFile = new MediaFile { Filename = mp3FilePath };
 
             using (Engine engine = new Engine())
             {

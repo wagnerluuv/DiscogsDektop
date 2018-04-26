@@ -1,0 +1,85 @@
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
+using DiscogsDesktop.Properties;
+using JetBrains.Annotations;
+using libDicogsDesktopControls.Dialogs;
+using libDicogsDesktopControls.Views;
+using libDiscogsDesktop.Services;
+
+namespace DiscogsDesktop
+{
+    public sealed partial class FormDiscogsDesktop : Form
+    {
+        public FormDiscogsDesktop()
+        {
+            this.InitializeComponent();
+
+            Settings.Default.PropertyChanged += (sender, args) => this.checkSettings();
+
+            this.checkSettings();
+        }
+
+        private void checkSettings()
+        {
+            string hint = "";
+
+            if (!Directory.Exists(Settings.Default.Folder))
+            {
+                hint += "please provide a folder to cache data\r\n\r\n";
+            }
+
+            if (string.IsNullOrWhiteSpace(Settings.Default.Token))
+            {
+                hint += "please provide a token to access discogs api";
+            }
+
+            if (!string.IsNullOrWhiteSpace(hint))
+            {
+                hint += "\r\n\r\n(can be done in settings)";
+                this.panelView.Controls.Clear();
+                this.panelView.Controls.Add(new Label { Text = hint, AutoSize = true });
+                return;
+            }
+
+            MediaService.SetApplicationFolder(Settings.Default.Folder);
+
+            DiscogsService.SetToken(Settings.Default.Token);
+
+            this.panelView.Controls.Clear();
+            ViewMain viewMain = new ViewMain();
+            this.panelView.Controls.Add(viewMain);
+            viewMain.Dock = DockStyle.Fill;
+        }
+
+        private void tokenToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            using (AuthenticationDialog dialog = new AuthenticationDialog())
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Settings.Default.Token = dialog.AuthenticationCode;
+                }
+            }
+
+            Settings.Default.Save();
+        }
+
+        private void folderToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog
+                {
+                    SelectedPath = Settings.Default.Folder,
+                    Description = @"Please select a folder where DiscogsDesktop can cache data",
+                })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Settings.Default.Folder = dialog.SelectedPath;
+                }
+            }
+
+            Settings.Default.Save();
+        }
+    }
+}

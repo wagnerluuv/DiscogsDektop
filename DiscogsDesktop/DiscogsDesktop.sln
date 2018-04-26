@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libDiscogsDesktop", "libDiscogsDesktop\libDiscogsDesktop.csproj", "{EA7F19EA-2785-4CCE-9210-20FA6C4474FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.DiscogsDesktop", "UnitTest.DiscogsDesktop\UnitTest.DiscogsDesktop.csproj", "{B5BDFB99-8071-4DDE-B911-8ADB76BB6C26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscogsDesktop", "DiscogsDesktop\DiscogsDesktop.csproj", "{39CD7D2D-E2EE-406E-BBCB-93CEB75DDB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libDicogsDesktopControls", "libDicogsDesktopControls\libDicogsDesktopControls.csproj", "{EDAD4886-C175-4077-A9D2-4BAD9A7CB32B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{EA7F19EA-2785-4CCE-9210-20FA6C4474FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7F19EA-2785-4CCE-9210-20FA6C4474FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7F19EA-2785-4CCE-9210-20FA6C4474FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5BDFB99-8071-4DDE-B911-8ADB76BB6C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5BDFB99-8071-4DDE-B911-8ADB76BB6C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5BDFB99-8071-4DDE-B911-8ADB76BB6C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5BDFB99-8071-4DDE-B911-8ADB76BB6C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39CD7D2D-E2EE-406E-BBCB-93CEB75DDB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CD7D2D-E2EE-406E-BBCB-93CEB75DDB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CD7D2D-E2EE-406E-BBCB-93CEB75DDB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CD7D2D-E2EE-406E-BBCB-93CEB75DDB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDAD4886-C175-4077-A9D2-4BAD9A7CB32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDAD4886-C175-4077-A9D2-4BAD9A7CB32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDAD4886-C175-4077-A9D2-4BAD9A7CB32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDAD4886-C175-4077-A9D2-4BAD9A7CB32B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
