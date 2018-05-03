@@ -1,42 +1,67 @@
 ﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Forms;
 using DiscogsClient.Data.Result;
 using JetBrains.Annotations;
+using libDicogsDesktopControls.ControlBase;
+using libDicogsDesktopControls.ControlModels;
+using libDicogsDesktopControls.ControlSelector;
 using libDicogsDesktopControls.Extensions;
-using libDicogsDesktopControls.Viewmodels;
 using libDiscogsDesktop.Models;
 
 namespace libDicogsDesktopControls.Controls
 {
-    public sealed partial class DiscogsReleaseControl : UserControl
+    public sealed partial class DiscogsReleaseControl : TypeTitleImageControl
     {
-        private readonly DiscogsReleaseControlViewmodel viewmodel;
+        private readonly DiscogsReleaseControlModel viewmodel;
 
         public DiscogsReleaseControl(DiscogsRelease release)
         {
             this.InitializeComponent();
 
-            this.viewmodel = new DiscogsReleaseControlViewmodel(release);
+            this.viewmodel = new DiscogsReleaseControlModel(release);
 
-            this.viewmodel.ImageLoaded += () => { this.pictureBox1.InvokeIfRequired(() => { this.pictureBox1.Image = this.viewmodel.Image; }); };
+            this.linkLabelLabel.Text = this.viewmodel.LabelName;
 
-            this.loadVideos();
+            this.DataBindings.Add(nameof(this.Title), this.viewmodel, nameof(this.viewmodel.Title), true, DataSourceUpdateMode.OnPropertyChanged);
+
+            this.viewmodel.ImageLoaded += () => { this.InvokeIfRequired(() => { this.Image = this.viewmodel.Image; }); };
+
+            this.viewmodel.LabelLoaded += this.viewmodelOnLabelLoaded;
+
+            this.viewmodel.StartImageLoading();
+
+            foreach (VideoModel videoModel in this.viewmodel.Videos)
+            {
+                this.flowLayoutPanelVideos.InvokeIfRequired(() =>
+                {
+                    VideoControl control = new VideoControl(videoModel);
+                    this.flowLayoutPanelVideos.Controls.Add(control);
+                });
+            }
         }
 
-        private void loadVideos()
+        private void viewmodelOnLabelLoaded(DiscogsLabel obj)
         {
-            foreach (VideoModel viewmodelVideo in this.viewmodel.Videos)
+            GlobalControls.DiscogsEntityControlPanel.InvokeIfRequired(() =>
             {
-                LinkLabel label = new LinkLabel
-                    {
-                        Tag = viewmodelVideo,
-                        Text = viewmodelVideo.Title,
-                        AutoSize = false,
-                        Width = this.flowLayoutPanelVideos.Width - 10
-                    };
-                label.LinkClicked += (sender, args) => { this.viewmodel.Play((VideoModel)((LinkLabel)sender).Tag); };
-                this.flowLayoutPanelVideos.Controls.Add(label);
-            }
+                GlobalControls.DiscogsEntityControlPanel.Controls.Cast<Control>().FirstOrDefault()?.Dispose();
+                GlobalControls.DiscogsEntityControlPanel.Controls.Clear();
+                DiscogsLabelControl control = new DiscogsLabelControl(obj);
+                GlobalControls.DiscogsEntityControlPanel.Controls.Add(control);
+                control.Dock = DockStyle.Fill;
+            });
+        }
+
+        private void linkLabelGoToUrlLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.viewmodel.OpenInBrowser();
+        }
+
+        private void linkLabelLabelLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.viewmodel.StartGetLabel();
         }
     }
 }

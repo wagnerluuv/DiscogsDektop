@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using AxWMPLib;
 using JetBrains.Annotations;
 using libDicogsDesktopControls.Extensions;
 using WMPLib;
 
 namespace libDicogsDesktopControls.Controls
 {
-    public sealed partial class SoundPlayer : UserControl
+    public sealed partial class SoundPlayerControl : UserControl
     {
         private readonly List<Tuple<string, string>> playList = new List<Tuple<string, string>>();
 
@@ -20,7 +21,7 @@ namespace libDicogsDesktopControls.Controls
 
         public event Action NextTrackRequested;
 
-        public SoundPlayer()
+        public SoundPlayerControl()
         {
             this.InitializeComponent();
             this.mediaplayer.settings.volume = this.trackBarVolume.Value = 100;
@@ -99,7 +100,10 @@ namespace libDicogsDesktopControls.Controls
         private void buttonPreviousClick(object sender, EventArgs e)
         {
             if (this.playingIndex == 0)
+            {
                 return;
+            }
+
             this.playingIndex--;
             this.mediaplayer.URL = this.playList[this.playingIndex].Item1;
             this.labelTitle.Text = this.playList[this.playingIndex].Item2;
@@ -112,18 +116,20 @@ namespace libDicogsDesktopControls.Controls
                 this.NextTrackRequested?.Invoke();
                 return;
             }
+
             this.playingIndex++;
             this.mediaplayer.URL = this.playList[this.playingIndex].Item1;
             this.labelTitle.Text = this.playList[this.playingIndex].Item2;
         }
 
-        private void mediaplayerPlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        private void mediaplayerPlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
         {
             if (this.stoppPressed)
             {
                 this.stoppPressed = false;
                 return;
             }
+
             if (this.mediaplayer.playState == WMPPlayState.wmppsStopped)
             {
                 this.TrackFinished?.Invoke();

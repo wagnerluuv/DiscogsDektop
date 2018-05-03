@@ -10,7 +10,8 @@ namespace libDicogsDesktopControls.ControlSelector
     {
         public static Control GetControl(DiscogsEntity entity)
         {
-            switch (entity) {
+            switch (entity)
+            {
                 case DiscogsMaster _:
                     break;
                 case DiscogsRelease _:
@@ -18,7 +19,7 @@ namespace libDicogsDesktopControls.ControlSelector
                 case DiscogsArtist _:
                     break;
                 case DiscogsLabel _:
-                    break;
+                    return new DiscogsLabelControl((DiscogsLabel)entity);
             }
 
             return new Control();

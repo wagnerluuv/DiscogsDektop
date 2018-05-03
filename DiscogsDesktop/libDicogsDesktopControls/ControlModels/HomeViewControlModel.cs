@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Data;
@@ -9,9 +9,9 @@ using DiscogsClient.Data.Result;
 using JetBrains.Annotations;
 using libDiscogsDesktop.Services;
 
-namespace libDicogsDesktopControls.Viewmodels
+namespace libDicogsDesktopControls.ControlModels
 {
-    public sealed class ViewMainViewmodel : DependencyObject
+    public sealed class HomeViewControlModel : DependencyObject
     {
         public string SearchPattern
         {
@@ -20,7 +20,7 @@ namespace libDicogsDesktopControls.Viewmodels
         }
 
         public static readonly DependencyProperty SearchPatternProperty = DependencyProperty.Register(
-            nameof(SearchPattern), typeof(string), typeof(ViewMainViewmodel), new PropertyMetadata());
+            nameof(SearchPattern), typeof(string), typeof(HomeViewControlModel), new PropertyMetadata());
 
         public readonly DataTable ResultsTable = new DataTable();
 
@@ -40,7 +40,7 @@ namespace libDicogsDesktopControls.Viewmodels
             }
         }
 
-        public ViewMainViewmodel()
+        public HomeViewControlModel()
         {
             this.searchResults.CollectionChanged += this.searchResultsOnCollectionChanged;
 
@@ -89,6 +89,11 @@ namespace libDicogsDesktopControls.Viewmodels
         {
             foreach (DiscogsSearchResult searchResult in notifyCollectionChangedEventArgs.NewItems ?? new DiscogsSearchResult[0])
             {
+                if (searchResult.type == DiscogsEntityType.master)
+                {
+                    return;
+                }
+
                 this.ResultsTable.Rows.Add(searchResult.type, searchResult.title, searchResult.id);
             }
         }

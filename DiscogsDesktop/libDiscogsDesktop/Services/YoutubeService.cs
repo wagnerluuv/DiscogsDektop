@@ -7,16 +7,16 @@ namespace libDiscogsDesktop.Services
 {
     public static class YoutubeService
     {
-        public static bool DownloadVideo(string url, string filepath)
+        public static bool DownloadVideo(string url, string successPath, string failurePath)
         {
             try
             {
-                File.WriteAllBytes(filepath, YouTube.Default.GetVideo(url).GetBytes());
+                File.WriteAllBytes(successPath, YouTube.Default.GetVideo(url).GetBytes());
                 return true;
             }
             catch
             {
-                File.Create(filepath).Close();
+                File.Create(failurePath).Close();
                 return false;
             }
         }

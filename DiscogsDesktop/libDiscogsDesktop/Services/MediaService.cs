@@ -10,6 +10,10 @@ namespace libDiscogsDesktop.Services
 {
     public static class MediaService
     {
+        public const string SuccessSuffix = "_success";
+
+        public const string FailureSuffix = "_failure";
+
         public const string ImageExtension = ".bmp";
 
         public const string VideoExtension = ".mp4";
@@ -35,41 +39,35 @@ namespace libDiscogsDesktop.Services
             }
         }
 
-        public static string GetVideoFilePath(string youtubeUrl)
+        public static bool GetVideoFilePath(string youtubeUrl, out string path)
         {
-            string path = getVideoFilePath(youtubeUrl);
+            path = downloadedVideoPath(youtubeUrl);
 
-            if (inProgress.ContainsKey(path))
+            if (inProgress.ContainsKey(youtubeUrl))
             {
-                while (!File.Exists(path))
+                while (path == null)
                 {
-                    Thread.Sleep(50);
+                    Thread.Sleep(200);
+                    path = downloadedVideoPath(youtubeUrl);
                 }
 
-                while (inProgress.ContainsKey(path))
+                while (inProgress.ContainsKey(youtubeUrl))
                 {
-                    inProgress.TryRemove(path, out _);
+                    inProgress.TryRemove(youtubeUrl, out _);
                 }
-
-                return path;
             }
 
-            if (File.Exists(path))
+            if (path != null)
             {
-                return path;
+                return path.Contains(SuccessSuffix);
             }
 
-            inProgress.TryAdd(path, "");
+            getVideoFilePath(youtubeUrl, out path, out string failurePath);
 
-            if (!YoutubeService.DownloadVideo(youtubeUrl, path))
-            {
-
-            }
-
-            return path;
+            return YoutubeService.DownloadVideo(youtubeUrl, path, failurePath);
         }
 
-        public static string GetReleaseImageFilePath(DiscogsImage image)
+        public static string GetImageFilePath(DiscogsImage image)
         {
             string path = getImageFilePath(image.uri);
 
@@ -81,9 +79,28 @@ namespace libDiscogsDesktop.Services
             return path;
         }
 
-        private static string getVideoFilePath(string youtubeUrl)
+        private static string downloadedVideoPath(string url)
         {
-            return Path.Combine(VideoFolder, getEscaped(youtubeUrl) + VideoExtension);
+            getVideoFilePath(url, out string successPath, out string failurePath);
+
+            if (File.Exists(successPath))
+            {
+                return successPath;
+            }
+
+            if (File.Exists(failurePath))
+            {
+                return failurePath;
+            }
+
+            return null;
+        }
+
+        private static void getVideoFilePath(string youtubeUrl, out string successPath, out string failurePath)
+        {
+            string fileKey = getEscaped(youtubeUrl);
+            successPath = Path.Combine(VideoFolder, $"{fileKey}{SuccessSuffix}{VideoExtension}");
+            failurePath = Path.Combine(VideoFolder, $"{fileKey}{FailureSuffix}{VideoExtension}");
         }
 
         private static string getImageFilePath(string imageUrl)

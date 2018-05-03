@@ -28,11 +28,15 @@ E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\AxInterop.WMPLib.dll
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.csproj.ResolveComReference.cache
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.DiscogsReleaseControl.resources
-E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.SoundPlayer.resources
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Dialogs.AuthenticationDialog.resources
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Properties.Resources.resources
-E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Views.ViewMain.resources
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.csproj.GenerateResource.Cache
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.csproj.CoreCompileInputs.cache
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.dll
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.pdb
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.VideoControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.ControlBase.LeftToRightDockingControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.DiscogsLabelControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.SoundPlayerControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.HomeViewControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.ControlBase.TypeTitleImageControl.resources

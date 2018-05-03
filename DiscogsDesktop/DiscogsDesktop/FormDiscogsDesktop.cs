@@ -3,8 +3,8 @@ using System.IO;
 using System.Windows.Forms;
 using DiscogsDesktop.Properties;
 using JetBrains.Annotations;
+using libDicogsDesktopControls.Controls;
 using libDicogsDesktopControls.Dialogs;
-using libDicogsDesktopControls.Views;
 using libDiscogsDesktop.Services;
 
 namespace DiscogsDesktop
@@ -47,7 +47,7 @@ namespace DiscogsDesktop
             DiscogsService.SetToken(Settings.Default.Token);
 
             this.panelView.Controls.Clear();
-            ViewMain viewMain = new ViewMain();
+            HomeViewControl viewMain = new HomeViewControl();
             this.panelView.Controls.Add(viewMain);
             viewMain.Dock = DockStyle.Fill;
         }

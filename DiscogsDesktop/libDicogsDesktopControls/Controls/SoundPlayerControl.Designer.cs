@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace libDicogsDesktopControls.Controls
 {
-    sealed partial class SoundPlayer
+    sealed partial class SoundPlayerControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace libDicogsDesktopControls.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundPlayer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundPlayerControl));
             this.trackBarPosition = new System.Windows.Forms.TrackBar();
             this.timerUpdatePosition = new System.Windows.Forms.Timer(this.components);
             this.mediaplayer = new AxWMPLib.AxWindowsMediaPlayer();

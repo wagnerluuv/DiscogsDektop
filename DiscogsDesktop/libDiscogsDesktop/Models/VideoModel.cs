@@ -9,6 +9,12 @@ namespace libDiscogsDesktop.Models
 
         public string Url { get; set; }
 
+        public VideoModel(string url, string title)
+        {
+            this.Url = url;
+            this.Title = title;
+        }
+
         public override string ToString()
         {
             return this.Title;

@@ -1,0 +1,15 @@
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\bin\Debug\DiscogsDesktopWpf.exe.config
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\bin\Debug\DiscogsDesktopWpf.exe
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\bin\Debug\DiscogsDesktopWpf.pdb
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.csprojResolveAssemblyReference.cache
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\MainWindow.g.cs
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\App.g.cs
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf_MarkupCompile.cache
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf_MarkupCompile.lref
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\MainWindow.baml
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.g.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.Properties.Resources.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.csproj.GenerateResource.Cache
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.csproj.CoreCompileInputs.cache
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.exe
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktopWpf\obj\Debug\DiscogsDesktopWpf.pdb

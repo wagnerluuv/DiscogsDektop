@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using JetBrains.Annotations;
+using libDicogsDesktopControls.ControlModels;
 using libDicogsDesktopControls.ControlSelector;
 using libDicogsDesktopControls.Extensions;
-using libDicogsDesktopControls.Viewmodels;
 
-namespace libDicogsDesktopControls.Views
+namespace libDicogsDesktopControls.Controls
 {
-    public sealed partial class ViewMain : UserControl
+    public sealed partial class HomeViewControl : UserControl
     {
-        private readonly ViewMainViewmodel viewmodel = new ViewMainViewmodel();
+        private readonly HomeViewControlModel viewmodel = new HomeViewControlModel();
 
-        public ViewMain()
+        public HomeViewControl()
         {
             this.InitializeComponent();
-            SoundPlayerControlSelector.Player = this.soundPlayer1;
-            this.textBox1.DataBindings.Add(new Binding(nameof(this.textBox1.Text), this.viewmodel, nameof(this.viewmodel.SearchPattern), true, DataSourceUpdateMode.OnPropertyChanged));
+            GlobalControls.DiscogsEntityControlPanel = this.panelSelected;
+            GlobalControls.SoundPlayerControl = this.soundPlayer1;
+            this.textBoxSearchPattern.DataBindings.Add(new Binding(nameof(this.textBoxSearchPattern.Text), this.viewmodel, nameof(this.viewmodel.SearchPattern), true,
+                DataSourceUpdateMode.OnPropertyChanged));
             this.dataGridView1.DataSource = this.viewmodel.ResultsTable;
-            this.viewmodel.SelectedEntityChanged += viewmodelOnSelectedEntityChanged;
+            this.viewmodel.SelectedEntityChanged += this.viewmodelOnSelectedEntityChanged;
         }
 
         private void viewmodelOnSelectedEntityChanged()
@@ -39,11 +42,25 @@ namespace libDicogsDesktopControls.Views
 
         private void dataGridView1SelectionChanged(object sender, EventArgs e)
         {
+            this.panelSelected.Controls.Cast<Control>().FirstOrDefault()?.Dispose();
+
             if (this.dataGridView1.SelectedRows.Count != 1)
             {
                 return;
             }
+
             this.viewmodel.SelectSearchResult(((DataRowView)this.dataGridView1.SelectedRows[0].DataBoundItem).Row);
+        }
+
+        private void textBoxSearchPatternKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)Keys.Enter)
+            {
+                return;
+            }
+
+            e.Handled = true;
+            this.viewmodel.Search();
         }
     }
 }
