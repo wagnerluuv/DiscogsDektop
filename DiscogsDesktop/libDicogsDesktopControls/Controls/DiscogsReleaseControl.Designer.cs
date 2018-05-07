@@ -32,6 +32,8 @@
             this.linkLabelGoToUrl = new System.Windows.Forms.LinkLabel();
             this.labelLabel = new System.Windows.Forms.Label();
             this.linkLabelLabel = new System.Windows.Forms.LinkLabel();
+            this.labelArtist = new System.Windows.Forms.Label();
+            this.flowLayoutPanelArtists = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // flowLayoutPanelVideos
@@ -60,7 +62,7 @@
             // labelLabel
             // 
             this.labelLabel.AutoSize = true;
-            this.labelLabel.Location = new System.Drawing.Point(6, 257);
+            this.labelLabel.Location = new System.Drawing.Point(6, 247);
             this.labelLabel.Name = "labelLabel";
             this.labelLabel.Size = new System.Drawing.Size(32, 13);
             this.labelLabel.TabIndex = 4;
@@ -69,7 +71,7 @@
             // linkLabelLabel
             // 
             this.linkLabelLabel.AutoSize = true;
-            this.linkLabelLabel.Location = new System.Drawing.Point(3, 270);
+            this.linkLabelLabel.Location = new System.Drawing.Point(3, 260);
             this.linkLabelLabel.Name = "linkLabelLabel";
             this.linkLabelLabel.Size = new System.Drawing.Size(60, 13);
             this.linkLabelLabel.TabIndex = 5;
@@ -77,11 +79,31 @@
             this.linkLabelLabel.Text = "labelname";
             this.linkLabelLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLabelLinkClicked);
             // 
+            // labelArtist
+            // 
+            this.labelArtist.AutoSize = true;
+            this.labelArtist.Location = new System.Drawing.Point(8, 283);
+            this.labelArtist.Name = "labelArtist";
+            this.labelArtist.Size = new System.Drawing.Size(32, 13);
+            this.labelArtist.TabIndex = 6;
+            this.labelArtist.Text = "label";
+            // 
+            // flowLayoutPanelArtists
+            // 
+            this.flowLayoutPanelArtists.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanelArtists.Location = new System.Drawing.Point(6, 299);
+            this.flowLayoutPanelArtists.Name = "flowLayoutPanelArtists";
+            this.flowLayoutPanelArtists.Size = new System.Drawing.Size(167, 90);
+            this.flowLayoutPanelArtists.TabIndex = 7;
+            // 
             // DiscogsReleaseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.flowLayoutPanelArtists);
+            this.Controls.Add(this.labelArtist);
             this.Controls.Add(this.linkLabelLabel);
             this.Controls.Add(this.labelLabel);
             this.Controls.Add(this.linkLabelGoToUrl);
@@ -93,6 +115,8 @@
             this.Controls.SetChildIndex(this.linkLabelGoToUrl, 0);
             this.Controls.SetChildIndex(this.labelLabel, 0);
             this.Controls.SetChildIndex(this.linkLabelLabel, 0);
+            this.Controls.SetChildIndex(this.labelArtist, 0);
+            this.Controls.SetChildIndex(this.flowLayoutPanelArtists, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,5 +127,7 @@
         private System.Windows.Forms.LinkLabel linkLabelGoToUrl;
         private System.Windows.Forms.Label labelLabel;
         private System.Windows.Forms.LinkLabel linkLabelLabel;
+        private System.Windows.Forms.Label labelArtist;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelArtists;
     }
 }

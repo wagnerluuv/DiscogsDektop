@@ -44,3 +44,4 @@ E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.dll
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.pdb
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\obj\Debug\libDiscogsDesktop.csprojResolveAssemblyReference.cache
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDiscogsDesktop\bin\Debug\DiscogsClient.pdb

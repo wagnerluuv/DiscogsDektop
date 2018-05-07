@@ -43,7 +43,7 @@ namespace DiscogsDesktop
             }
 
             MediaService.SetApplicationFolder(Settings.Default.Folder);
-
+            
             DiscogsService.SetToken(Settings.Default.Token);
 
             this.panelView.Controls.Clear();
@@ -54,7 +54,7 @@ namespace DiscogsDesktop
 
         private void tokenToolStripMenuItemClick(object sender, EventArgs e)
         {
-            using (AuthenticationDialog dialog = new AuthenticationDialog())
+            using (AuthenticationDialog dialog = new AuthenticationDialog { AuthenticationCode = Settings.Default.Token })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -80,6 +80,11 @@ namespace DiscogsDesktop
             }
 
             Settings.Default.Save();
+        }
+
+        private void deleteFilesToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            MediaService.DeleteFiles();
         }
     }
 }

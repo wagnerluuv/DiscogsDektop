@@ -24,6 +24,39 @@ namespace libDiscogsDesktop.Services
 
         public static string ImageFolder => Path.Combine(ApplicationFolder ?? "", "Images");
 
+        public static void DeleteFiles()
+        {
+            try
+            {
+                foreach (string videoFile in Directory.GetFiles(VideoFolder))
+                {
+                    try
+                    {
+                        File.Delete(videoFile);
+                    }
+                    catch
+                    {
+                        //ignore
+                    }
+                }
+                foreach (string imageFile in Directory.GetFiles(ImageFolder))
+                {
+                    try
+                    {
+                        File.Delete(imageFile);
+                    }
+                    catch
+                    {
+                        //ignore
+                    }
+                }
+            }
+            catch 
+            {
+                //ignore
+            }
+        }
+
         public static void SetApplicationFolder(string folder)
         {
             ApplicationFolder = folder;
@@ -64,7 +97,7 @@ namespace libDiscogsDesktop.Services
 
             getVideoFilePath(youtubeUrl, out path, out string failurePath);
 
-            return YoutubeService.DownloadVideo(youtubeUrl, path, failurePath);
+            return YoutubeService.DownloadVideoViaVideoLibrary(youtubeUrl, path, failurePath);
         }
 
         public static string GetImageFilePath(DiscogsImage image)

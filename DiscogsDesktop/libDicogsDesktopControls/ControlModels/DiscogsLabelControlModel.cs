@@ -96,7 +96,7 @@ namespace libDicogsDesktopControls.ControlModels
 
         private void releasesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            foreach (DiscogsLabelRelease release in e.NewItems ?? new DiscogsSearchResult[0])
+            foreach (DiscogsLabelRelease release in e.NewItems ?? new DiscogsLabelRelease[0])
             {
                 this.ReleasesTable.Rows.Add(release.title, release.artist, release.year, release.id);
             }

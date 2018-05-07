@@ -33,3 +33,6 @@ E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\obj\Debug\Dis
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\obj\Debug\DiscogsDesktop.csproj.CoreCompileInputs.cache
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\obj\Debug\DiscogsDesktop.exe
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\obj\Debug\DiscogsDesktop.pdb
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\bin\Debug\DiscogsClient.pdb
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\bin\Debug\YoutubeExtractor.dll
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\DiscogsDesktop\bin\Debug\YoutubeExtractor.xml

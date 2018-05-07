@@ -19,7 +19,11 @@ namespace libDicogsDesktopControls.ControlModels
 
         public readonly VideoModel[] Videos;
 
+        public readonly DiscogsReleaseArtist[] Artists;
+
         public event Action<DiscogsLabel> LabelLoaded;
+
+        public event Action<DiscogsArtist> ArtistLoaded;
 
         public readonly string LabelName;
 
@@ -27,6 +31,7 @@ namespace libDicogsDesktopControls.ControlModels
         {
             this.release = release;
             this.Title = release.title;
+            this.Artists = release.artists;
             this.LabelName = release.labels[0].name;
             this.Videos = (release.videos ?? new DiscogsVideo[0]).Select(v => new VideoModel(v.uri, v.title)).ToArray();
         }
@@ -45,6 +50,11 @@ namespace libDicogsDesktopControls.ControlModels
         public void OpenInBrowser()
         {
             Process.Start(this.release.uri);
+        }
+
+        public void StartGetArtist(DiscogsReleaseArtist artist)
+        {
+            Task.Run(() => { this.ArtistLoaded?.Invoke(DiscogsService.GetArtist(artist.id)); });
         }
 
         public void StartGetLabel()

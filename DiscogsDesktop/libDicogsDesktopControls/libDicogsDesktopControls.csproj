@@ -29,9 +29,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DiscogsClient, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DiscogsClient.2.2.0\lib\net461\DiscogsClient.dll</HintPath>
-    </Reference>
     <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.11.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
@@ -82,9 +79,16 @@
       <DependentUpon>TypeTitleImageControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlModelBase\TitleAndImageControlModel.cs" />
+    <Compile Include="ControlModels\DiscogsArtistControlModel.cs" />
     <Compile Include="ControlModels\DiscogsLabelControlModel.cs" />
     <Compile Include="ControlSelector\DiscogsEntityControlSelector.cs" />
     <Compile Include="ControlSelector\GlobalControls.cs" />
+    <Compile Include="Controls\DiscogsArtistControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DiscogsArtistControl.Designer.cs">
+      <DependentUpon>DiscogsArtistControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DiscogsLabelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +138,10 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DiscogsClient-master\DiscogsClient\DiscogsClient.csproj">
+      <Project>{f0138d25-8712-4dca-880a-507067ac1326}</Project>
+      <Name>DiscogsClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\libDiscogsDesktop\libDiscogsDesktop.csproj">
       <Project>{ea7f19ea-2785-4cce-9210-20fa6c4474fa}</Project>
       <Name>libDiscogsDesktop</Name>
@@ -145,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlBase\TypeTitleImageControl.resx">
       <DependentUpon>TypeTitleImageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DiscogsArtistControl.resx">
+      <DependentUpon>DiscogsArtistControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DiscogsLabelControl.resx">
       <DependentUpon>DiscogsLabelControl.cs</DependentUpon>

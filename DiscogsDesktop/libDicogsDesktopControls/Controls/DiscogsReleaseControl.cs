@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Windows;
 using System.Windows.Forms;
 using DiscogsClient.Data.Result;
 using JetBrains.Annotations;
@@ -30,6 +29,8 @@ namespace libDicogsDesktopControls.Controls
 
             this.viewmodel.LabelLoaded += this.viewmodelOnLabelLoaded;
 
+            this.viewmodel.ArtistLoaded += this.viewmodelOnArtistLoaded;
+
             this.viewmodel.StartImageLoading();
 
             foreach (VideoModel videoModel in this.viewmodel.Videos)
@@ -40,6 +41,29 @@ namespace libDicogsDesktopControls.Controls
                     this.flowLayoutPanelVideos.Controls.Add(control);
                 });
             }
+
+            foreach (DiscogsReleaseArtist artist in this.viewmodel.Artists)
+            {
+                LinkLabel artistLink = new LinkLabel { Text = artist.name };
+                int height = artistLink.Height;
+                artistLink.AutoSize = false;
+                artistLink.Height = height;
+                artistLink.Width = this.flowLayoutPanelArtists.ClientSize.Width;
+                artistLink.LinkClicked += (sender, args) => { this.viewmodel.StartGetArtist(artist); };
+                this.flowLayoutPanelArtists.Controls.Add(artistLink);
+            }
+        }
+
+        private void viewmodelOnArtistLoaded(DiscogsArtist obj)
+        {
+            GlobalControls.DiscogsEntityControlPanel.InvokeIfRequired(() =>
+            {
+                GlobalControls.DiscogsEntityControlPanel.Controls.Cast<Control>().FirstOrDefault()?.Dispose();
+                GlobalControls.DiscogsEntityControlPanel.Controls.Clear();
+                DiscogsArtistControl control = new DiscogsArtistControl(obj);
+                GlobalControls.DiscogsEntityControlPanel.Controls.Add(control);
+                control.Dock = DockStyle.Fill;
+            });
         }
 
         private void viewmodelOnLabelLoaded(DiscogsLabel obj)

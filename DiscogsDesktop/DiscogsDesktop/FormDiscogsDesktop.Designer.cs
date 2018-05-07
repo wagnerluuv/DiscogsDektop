@@ -33,6 +33,8 @@
             this.toolStripDropDownButtonSettings = new System.Windows.Forms.ToolStripDropDownButton();
             this.tokenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.deleteFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelView = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -40,7 +42,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButtonSettings});
+            this.toolStripDropDownButtonSettings,
+            this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(851, 25);
@@ -62,16 +65,34 @@
             // tokenToolStripMenuItem
             // 
             this.tokenToolStripMenuItem.Name = "tokenToolStripMenuItem";
-            this.tokenToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.tokenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tokenToolStripMenuItem.Text = "token";
             this.tokenToolStripMenuItem.Click += new System.EventHandler(this.tokenToolStripMenuItemClick);
             // 
             // folderToolStripMenuItem
             // 
             this.folderToolStripMenuItem.Name = "folderToolStripMenuItem";
-            this.folderToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.folderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.folderToolStripMenuItem.Text = "folder";
             this.folderToolStripMenuItem.Click += new System.EventHandler(this.folderToolStripMenuItemClick);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteFilesToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(58, 22);
+            this.toolStripDropDownButton1.Text = "actions";
+            // 
+            // deleteFilesToolStripMenuItem
+            // 
+            this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
+            this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFilesToolStripMenuItem.Text = "delete files";
+            this.deleteFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteFilesToolStripMenuItemClick);
             // 
             // panelView
             // 
@@ -108,6 +129,8 @@
         private System.Windows.Forms.ToolStripMenuItem tokenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderToolStripMenuItem;
         private System.Windows.Forms.Panel panelView;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem deleteFilesToolStripMenuItem;
     }
 }
 

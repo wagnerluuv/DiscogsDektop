@@ -102,4 +102,8 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)" "$(SolutionDir)DiscogsDesktopPortable\program"
+powershell Compress-Archive -Path '$(SolutionDir)DiscogsDesktopPortable\program', '$(SolutionDir)DiscogsDesktopPortable\Start DiscogsDesktop.bat' -DestinationPath '$(SolutionDir)DiscogsDesktopPortable\DiscogsDesktop.zip' -Force</PostBuildEvent>
+  </PropertyGroup>
 </Project>

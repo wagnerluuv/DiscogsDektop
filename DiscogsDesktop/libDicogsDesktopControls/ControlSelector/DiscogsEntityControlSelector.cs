@@ -17,7 +17,7 @@ namespace libDicogsDesktopControls.ControlSelector
                 case DiscogsRelease _:
                     return new DiscogsReleaseControl((DiscogsRelease)entity);
                 case DiscogsArtist _:
-                    break;
+                    return new DiscogsArtistControl((DiscogsArtist)entity);
                 case DiscogsLabel _:
                     return new DiscogsLabelControl((DiscogsLabel)entity);
             }

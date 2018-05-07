@@ -40,3 +40,7 @@ E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.SoundPlayerControl.resources
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.HomeViewControl.resources
 E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.ControlBase.TypeTitleImageControl.resources
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\bin\Debug\DiscogsClient.pdb
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\bin\Debug\YoutubeExtractor.dll
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\bin\Debug\YoutubeExtractor.xml
+E:\coding\github repos\DiscogsDektop\DiscogsDesktop\libDicogsDesktopControls\obj\Debug\libDicogsDesktopControls.Controls.DiscogsArtistControl.resources

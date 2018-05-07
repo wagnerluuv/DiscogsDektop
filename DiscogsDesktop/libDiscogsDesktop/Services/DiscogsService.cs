@@ -13,9 +13,17 @@ namespace libDiscogsDesktop.Services
     {
         private static DisClient client;
 
+        public static event Action TokenChanged;
+
         public static void SetToken(string token)
         {
             client = new DisClient(new TokenAuthenticationInformation(token), "DiscogsDesktop", 10000);
+            TokenChanged?.Invoke();
+        }
+
+        public static DiscogsIdentity GetUser()
+        {
+            return client.GetUserIdentityAsync().Result;
         }
 
         public static DiscogsMaster GetMasterRelease(int id)
@@ -38,6 +46,11 @@ namespace libDiscogsDesktop.Services
             return client.GetLabelAsync(id).Result;
         }
 
+        public static void GetCollectionReleases(string username, ObservableCollection<DiscogsCollectionRelease> observable)
+        {
+            client.GetCollectionReleases(username).Subscribe(observable.Add);
+        }
+
         public static void Search(string pattern, ObservableCollection<DiscogsSearchResult> observable)
         {
             client.Search(new DiscogsSearch { query = pattern }).Subscribe(observable.Add);
@@ -46,6 +59,11 @@ namespace libDiscogsDesktop.Services
         public static void GetLabelReleases(int id, ObservableCollection<DiscogsLabelRelease> observable)
         {
             client.GetAllLabelReleases(id).Subscribe(observable.Add);
+        }
+
+        public static void GetArtistReleases(int id, ObservableCollection<DiscogsArtistRelease> observable)
+        {
+            client.GetArtistRelease(id, new DiscogsSortInformation { sort = DiscogsArtistSortType.year, sort_order = DiscogsSortOrderType.desc }).Subscribe(observable.Add);
         }
 
         public static void DownloadImage(DiscogsImage image, string filepath)

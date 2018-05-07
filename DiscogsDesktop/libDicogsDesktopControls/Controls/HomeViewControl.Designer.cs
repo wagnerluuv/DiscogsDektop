@@ -37,11 +37,16 @@ namespace libDicogsDesktopControls.Controls
             this.panelSelected = new System.Windows.Forms.Panel();
             this.soundPlayer1 = new libDicogsDesktopControls.Controls.SoundPlayerControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButtonAll = new System.Windows.Forms.RadioButton();
+            this.radioButtonCollection = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearch
@@ -120,10 +125,55 @@ namespace libDicogsDesktopControls.Controls
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 5;
             // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.Location = new System.Drawing.Point(333, 5);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(749, 24);
+            this.labelUserName.TabIndex = 6;
+            this.labelUserName.Text = "logged in as:";
+            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButtonCollection);
+            this.panel1.Controls.Add(this.radioButtonAll);
+            this.panel1.Location = new System.Drawing.Point(199, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(128, 26);
+            this.panel1.TabIndex = 7;
+            // 
+            // radioButtonAll
+            // 
+            this.radioButtonAll.AutoSize = true;
+            this.radioButtonAll.Checked = true;
+            this.radioButtonAll.Location = new System.Drawing.Point(3, 6);
+            this.radioButtonAll.Name = "radioButtonAll";
+            this.radioButtonAll.Size = new System.Drawing.Size(37, 17);
+            this.radioButtonAll.TabIndex = 0;
+            this.radioButtonAll.TabStop = true;
+            this.radioButtonAll.Text = "all";
+            this.radioButtonAll.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCollection
+            // 
+            this.radioButtonCollection.AutoSize = true;
+            this.radioButtonCollection.Location = new System.Drawing.Point(46, 6);
+            this.radioButtonCollection.Name = "radioButtonCollection";
+            this.radioButtonCollection.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonCollection.TabIndex = 1;
+            this.radioButtonCollection.Text = "collection";
+            this.radioButtonCollection.UseVisualStyleBackColor = true;
+            this.radioButtonCollection.CheckedChanged += new System.EventHandler(this.radioButtonCollectionCheckedChanged);
+            // 
             // HomeViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.soundPlayer1);
             this.Controls.Add(this.textBoxSearchPattern);
@@ -136,6 +186,8 @@ namespace libDicogsDesktopControls.Controls
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +201,9 @@ namespace libDicogsDesktopControls.Controls
         private System.Windows.Forms.Panel panelSelected;
         private Controls.SoundPlayerControl soundPlayer1;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButtonCollection;
+        private System.Windows.Forms.RadioButton radioButtonAll;
     }
 }

@@ -2,20 +2,22 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using JetBrains.Annotations;
-using libDiscogsDesktop.Services;
 
 namespace libDicogsDesktopControls.Dialogs
 {
     public sealed partial class AuthenticationDialog : Form
     {
-        public string AuthenticationCode { get; private set; }
+        public string AuthenticationCode
+        {
+            get => this.textBoxCode.Text;
+            set => this.textBoxCode.Text = value;
+        }
 
         public AuthenticationDialog()
         {
             this.InitializeComponent();
-            
         }
-        
+
         private void buttonAuthorizeClick(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.textBoxCode.Text))
@@ -23,7 +25,6 @@ namespace libDicogsDesktopControls.Dialogs
                 return;
             }
 
-            this.AuthenticationCode = this.textBoxCode.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

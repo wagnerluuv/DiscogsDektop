@@ -38,7 +38,7 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(179, 19);
+            this.textBoxSearch.Location = new System.Drawing.Point(179, 48);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(100, 22);
             this.textBoxSearch.TabIndex = 2;
@@ -55,12 +55,12 @@
             this.dataGridViewReleases.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewReleases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReleases.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewReleases.Location = new System.Drawing.Point(179, 48);
+            this.dataGridViewReleases.Location = new System.Drawing.Point(179, 77);
             this.dataGridViewReleases.MultiSelect = false;
             this.dataGridViewReleases.Name = "dataGridViewReleases";
             this.dataGridViewReleases.ReadOnly = true;
             this.dataGridViewReleases.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReleases.Size = new System.Drawing.Size(642, 186);
+            this.dataGridViewReleases.Size = new System.Drawing.Size(642, 157);
             this.dataGridViewReleases.TabIndex = 5;
             this.dataGridViewReleases.SelectionChanged += new System.EventHandler(this.dataGridViewReleasesSelectionChanged);
             // 
@@ -76,7 +76,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(285, 19);
+            this.buttonSearch.Location = new System.Drawing.Point(285, 48);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 7;
