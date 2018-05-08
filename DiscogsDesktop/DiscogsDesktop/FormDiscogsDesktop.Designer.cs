@@ -36,6 +36,8 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.deleteFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelView = new System.Windows.Forms.Panel();
+            this.maxItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBoxMaxItems = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,8 @@
             this.toolStripDropDownButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButtonSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tokenToolStripMenuItem,
-            this.folderToolStripMenuItem});
+            this.folderToolStripMenuItem,
+            this.maxItemsToolStripMenuItem});
             this.toolStripDropDownButtonSettings.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonSettings.Image")));
             this.toolStripDropDownButtonSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonSettings.Name = "toolStripDropDownButtonSettings";
@@ -90,7 +93,7 @@
             // deleteFilesToolStripMenuItem
             // 
             this.deleteFilesToolStripMenuItem.Name = "deleteFilesToolStripMenuItem";
-            this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFilesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.deleteFilesToolStripMenuItem.Text = "delete files";
             this.deleteFilesToolStripMenuItem.Click += new System.EventHandler(this.deleteFilesToolStripMenuItemClick);
             // 
@@ -101,6 +104,21 @@
             this.panelView.Name = "panelView";
             this.panelView.Size = new System.Drawing.Size(851, 428);
             this.panelView.TabIndex = 1;
+            // 
+            // maxItemsToolStripMenuItem
+            // 
+            this.maxItemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxMaxItems});
+            this.maxItemsToolStripMenuItem.Name = "maxItemsToolStripMenuItem";
+            this.maxItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maxItemsToolStripMenuItem.Text = "max items";
+            this.maxItemsToolStripMenuItem.ToolTipText = "defines how many items will bei displayed when a search is submitted";
+            // 
+            // toolStripTextBoxMaxItems
+            // 
+            this.toolStripTextBoxMaxItems.Name = "toolStripTextBoxMaxItems";
+            this.toolStripTextBoxMaxItems.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxMaxItems.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxMaxItemsKeyPress);
             // 
             // FormDiscogsDesktop
             // 
@@ -131,6 +149,8 @@
         private System.Windows.Forms.Panel panelView;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem deleteFilesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maxItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxMaxItems;
     }
 }
 

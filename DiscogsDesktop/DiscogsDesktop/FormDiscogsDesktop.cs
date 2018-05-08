@@ -17,6 +17,8 @@ namespace DiscogsDesktop
 
             Settings.Default.PropertyChanged += (sender, args) => this.checkSettings();
 
+            this.toolStripTextBoxMaxItems.Text = Settings.Default.MaxItems.ToString();
+
             this.checkSettings();
         }
 
@@ -43,7 +45,9 @@ namespace DiscogsDesktop
             }
 
             MediaService.SetApplicationFolder(Settings.Default.Folder);
-            
+
+            DiscogsService.MaxItems = Settings.Default.MaxItems;
+
             DiscogsService.SetToken(Settings.Default.Token);
 
             this.panelView.Controls.Clear();
@@ -85,6 +89,26 @@ namespace DiscogsDesktop
         private void deleteFilesToolStripMenuItemClick(object sender, EventArgs e)
         {
             MediaService.DeleteFiles();
+        }
+
+        private void toolStripTextBoxMaxItemsKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)Keys.Enter)
+            {
+                return;
+            }
+
+            e.Handled = true;
+
+            if (!int.TryParse(this.toolStripTextBoxMaxItems.Text, out int maxitems))
+            {
+                MessageBox.Show("please provide a valid number", "invlid number format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.toolStripTextBoxMaxItems.Text = Settings.Default.MaxItems.ToString();
+                return;
+            }
+
+            Settings.Default.MaxItems = maxitems;
+            Settings.Default.Save();
         }
     }
 }

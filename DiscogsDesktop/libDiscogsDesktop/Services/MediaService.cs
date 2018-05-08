@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using DiscogsClient.Data.Result;
 using JetBrains.Annotations;
+using Microsoft.VisualBasic.FileIO;
 
 namespace libDiscogsDesktop.Services
 {
@@ -26,35 +27,37 @@ namespace libDiscogsDesktop.Services
 
         public static void DeleteFiles()
         {
-            try
-            {
-                foreach (string videoFile in Directory.GetFiles(VideoFolder))
-                {
-                    try
-                    {
-                        File.Delete(videoFile);
-                    }
-                    catch
-                    {
-                        //ignore
-                    }
-                }
-                foreach (string imageFile in Directory.GetFiles(ImageFolder))
-                {
-                    try
-                    {
-                        File.Delete(imageFile);
-                    }
-                    catch
-                    {
-                        //ignore
-                    }
-                }
-            }
-            catch 
-            {
-                //ignore
-            }
+            FileSystem.DeleteDirectory(VideoFolder, UIOption.OnlyErrorDialogs, RecycleOption.DeletePermanently, UICancelOption.DoNothing);
+            FileSystem.DeleteDirectory(ImageFolder, UIOption.OnlyErrorDialogs, RecycleOption.DeletePermanently, UICancelOption.DoNothing);
+            //try
+            //{
+            //    foreach (string videoFile in Directory.GetFiles(VideoFolder))
+            //    {
+            //        try
+            //        {
+            //            File.Delete(videoFile);
+            //        }
+            //        catch
+            //        {
+            //            //ignore
+            //        }
+            //    }
+            //    foreach (string imageFile in Directory.GetFiles(ImageFolder))
+            //    {
+            //        try
+            //        {
+            //            File.Delete(imageFile);
+            //        }
+            //        catch
+            //        {
+            //            //ignore
+            //        }
+            //    }
+            //}
+            //catch 
+            //{
+            //    //ignore
+            //}
         }
 
         public static void SetApplicationFolder(string folder)
@@ -74,6 +77,8 @@ namespace libDiscogsDesktop.Services
 
         public static bool GetVideoFilePath(string youtubeUrl, out string path)
         {
+            ensureExistingDirectory(VideoFolder);
+
             path = downloadedVideoPath(youtubeUrl);
 
             if (inProgress.ContainsKey(youtubeUrl))
@@ -102,6 +107,8 @@ namespace libDiscogsDesktop.Services
 
         public static string GetImageFilePath(DiscogsImage image)
         {
+            ensureExistingDirectory(ImageFolder);
+
             string path = getImageFilePath(image.uri);
 
             if (!File.Exists(path))
@@ -144,6 +151,14 @@ namespace libDiscogsDesktop.Services
         private static string getEscaped(string youtubeUrl)
         {
             return Path.GetInvalidFileNameChars().Aggregate(youtubeUrl, (current, invalidFileNameChar) => current.Replace(invalidFileNameChar, '_'));
+        }
+
+        private static void ensureExistingDirectory(string directory)
+        {
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
         }
 
         private static readonly ConcurrentDictionary<string, string> inProgress = new ConcurrentDictionary<string, string>();

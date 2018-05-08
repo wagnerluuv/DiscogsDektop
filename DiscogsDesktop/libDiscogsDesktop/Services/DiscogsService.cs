@@ -13,6 +13,8 @@ namespace libDiscogsDesktop.Services
     {
         private static DisClient client;
 
+        public static int MaxItems { get; set; }
+
         public static event Action TokenChanged;
 
         public static void SetToken(string token)
@@ -20,7 +22,7 @@ namespace libDiscogsDesktop.Services
             client = new DisClient(new TokenAuthenticationInformation(token), "DiscogsDesktop", 10000);
             TokenChanged?.Invoke();
         }
-
+        
         public static DiscogsIdentity GetUser()
         {
             return client.GetUserIdentityAsync().Result;
@@ -48,22 +50,22 @@ namespace libDiscogsDesktop.Services
 
         public static void GetCollectionReleases(string username, ObservableCollection<DiscogsCollectionRelease> observable)
         {
-            client.GetCollectionReleases(username).Subscribe(observable.Add);
+            client.GetCollectionReleases(username, MaxItems).Subscribe(observable.Add);
         }
 
         public static void Search(string pattern, ObservableCollection<DiscogsSearchResult> observable)
         {
-            client.Search(new DiscogsSearch { query = pattern }).Subscribe(observable.Add);
+            client.Search(new DiscogsSearch { query = pattern }, MaxItems).Subscribe(observable.Add);
         }
 
         public static void GetLabelReleases(int id, ObservableCollection<DiscogsLabelRelease> observable)
         {
-            client.GetAllLabelReleases(id).Subscribe(observable.Add);
+            client.GetAllLabelReleases(id, MaxItems).Subscribe(observable.Add);
         }
 
         public static void GetArtistReleases(int id, ObservableCollection<DiscogsArtistRelease> observable)
         {
-            client.GetArtistRelease(id, new DiscogsSortInformation { sort = DiscogsArtistSortType.year, sort_order = DiscogsSortOrderType.desc }).Subscribe(observable.Add);
+            client.GetArtistRelease(id, new DiscogsSortInformation { sort = DiscogsArtistSortType.year, sort_order = DiscogsSortOrderType.desc }, MaxItems).Subscribe(observable.Add);
         }
 
         public static void DownloadImage(DiscogsImage image, string filepath)
